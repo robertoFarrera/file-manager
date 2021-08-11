@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>Uploaded Files</h1>
+        <h1>{{ __('Uploaded Files') }}</h1>
         <div>
-            <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#file-modal">Add new file</a>
+            <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#file-modal">{{ __('Add new file') }}</a>
         </div>
 
     </div>
@@ -15,7 +15,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New File</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ __('New File') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -25,13 +25,13 @@
                             <div class="custom-file">
                                 <input name="file" type="file" class="custom-file-input" id="new-file"
                                     aria-describedby="new-file">
-                                <label class="custom-file-label" for="new-file">Choose File...</label>
+                                <label class="custom-file-label" for="new-file">{{ __('Choose File...') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                     </div>
                 </div>
             </div>
@@ -56,11 +56,11 @@
                                 <p class="text-muted small">{{$file->created_at->format('d/m/Y')}}</p>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <a href="{{route('files.download',$file)}}" class="btn btn-primary btn-sm mr-1">Descargar</a>
+                                <a href="{{route('files.download',$file)}}" class="btn btn-primary btn-sm mr-1">{{ __('Download') }}</a>
                                 <form action="{{route('files.destroy',$file)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
                                 </form>
                             </div>
                         </div>

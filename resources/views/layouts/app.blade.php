@@ -31,6 +31,22 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ __("Select Language") }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{ route('set_language', ['es']) }}">
+                                    {{ __("Español") }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('set_language', ['en']) }}">
+                                    {{ __("Inglés") }}
+                                </a>
+                            </div>
+                        </li>
+
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -45,6 +61,9 @@
                                 </li>
                             @endif
                         @else
+
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

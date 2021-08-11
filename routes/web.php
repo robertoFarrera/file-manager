@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
+Route::get('/set_language/{lang}',[\App\Http\Controllers\LanguageController::class,'setLanguage'])->name('set_language');
+
 Auth::routes();
 
 Route::get('/home', [FileController::class, 'index'])->name('home');
 Route::get('files/{file}', [FileController::class, 'download'])->name('files.download');
 Route::post('files', [FileController::class, 'store'])->name('files.store');
 Route::delete('files/{file}', [FileController::class, 'destroy'])->name('files.destroy');
+
